@@ -1,0 +1,46 @@
+#contacts-settings: "D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt"
+
+spring:
+  profiles:
+    active: init
+---
+spring:
+  profiles: init
+contacts-settings: "D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\init-contacts.txt"
+---
+spring:
+  profiles: read
+contacts-settings: "D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt"
+
+
+  #app:
+#  person:
+#    fullName: "Иванов Иван Иванович"
+#    phoneNumber: "+375296355896"
+#    email: "ivanov635@mail.ru"
+
+#  spring:
+#    profiles:
+#      active: development
+#  ---
+#  spring:
+#    profiles: development
+#  merchantaccount:
+#    name: Maureen Sindiso Mpofu
+#    username: momoe
+#    code: MCA1230
+#    number: 771222279
+#    currency: ZWL
+#  server:
+#    port: 9090
+#  ---
+#  spring:
+#    profiles: production
+#  server:
+#    port: 9093
+#  merchantaccount:
+#    name: Maureen Sindiso Mpofu
+#    username: momoe
+#    code: MCA1234
+#    number: 771222279
+#    currency: ZWD
