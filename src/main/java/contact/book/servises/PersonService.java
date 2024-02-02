@@ -17,13 +17,13 @@ public class PersonService {
     @Autowired
     private ContactBook contactBook;
 
-    @Value("${contacts-settings}")
+    @Value("${file}")
     private String fileNameSave;
 
     private static final java.util.logging.Logger log = Logger.getLogger(PersonService.class.getName());
 
     public void saveNewPersonToContactBook() {
-        System.out.println("Введите данные в порядке: Ф.И.О, номер телефона, адрес электронной почты");
+        System.out.println("Введите данные в следующем порядке: Ф.И.О, номер телефона, адрес электронной почты");
         Scanner scannerNewPerson = new Scanner(System.in);
         String fullName = scannerNewPerson.nextLine();
         String phoneNumber = scannerNewPerson.nextLine();

@@ -1,9 +1,9 @@
-package contact.book.models;
+package contact.book.servises;
 
-import contact.book.servises.PersonService;
+import contact.book.models.ContactBook;
+import contact.book.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-@Component
-public class InitContacts {
+@Service
+public class GetContacts {
 
 //    @Value("${contacts-settings}")
 //    private String fileNameLoad;
@@ -30,8 +30,8 @@ public class InitContacts {
 
     public void readContactBookFromFile(String fileNameLoad) {
         try {
-            FileReader fr = new FileReader(fileNameLoad);
-            Scanner scan = new Scanner(fr);
+            FileReader fileReader = new FileReader(fileNameLoad);
+            Scanner scan = new Scanner(fileReader);
             while (scan.hasNextLine()) {
                 String[] contacts = scan.nextLine().split(";");
                 String name = contacts[0];
@@ -39,7 +39,7 @@ public class InitContacts {
                 String email = contacts[2];
                 contactsList.add(new Person(name, phone, email));
             }
-            fr.close();
+            fileReader.close();
             contactBook.setPersons(contactsList);
         } catch (IOException ex) {
             log.warning("Ошибка чтения файла.");

@@ -17,17 +17,19 @@ public class MainMenu {
 //    @Autowired
 //    private InitContacts initContacts;
 
-//    @Autowired
-//    private ProfileWorker profileWorker;
-
     @Autowired
-    private EnvContacts envContacts;
+    private ProfileWorker profileWorker;
+
+//    @Autowired
+//    private EnvContacts envContacts;
 
     private static final java.util.logging.Logger log = Logger.getLogger(MainMenu.class.getName());
 
     public void menu() {
 //        initContacts.readContactBookFromFile();
-        envContacts.choiceEnv();
+//        envContacts.choiceEnv();
+        profileWorker.doWork();
+
         while (true) {
             System.out.println("""
                     Перечень команд для работы с контактами:
