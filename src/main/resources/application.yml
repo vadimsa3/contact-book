@@ -2,17 +2,17 @@ spring:
  profiles:
   active: init
 ---
-# загрузка контактов из базы контактов, загруженной в программу
+# загрузка default контактов из сторонней базы по умолчанию
 spring:
  profiles: init
 contacts-settings:
-  file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\init-contacts.txt
+ file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\default-contacts.txt
 ---
 # загрузка контактов из базы, сохраненной по результатам работы программы
 spring:
  profiles: read
 contacts-settings:
-  file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt
+ file-load-read: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt
 ---
 # запись контактов в базу
 file-save: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt

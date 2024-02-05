@@ -3,6 +3,9 @@ package contact.book.profiles;
 import contact.book.servises.GetContacts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 public class InitEnv implements EnvContacts {
 
@@ -14,7 +17,7 @@ public class InitEnv implements EnvContacts {
 
     @Override
     public void choiceEnv() {
-        System.out.println("Запуск профиля Init");
+        System.out.println("Запуск профиля Init " + fileNameLoad);
         getContacts.readContactBookFromFile(fileNameLoad);
     }
 }

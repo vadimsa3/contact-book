@@ -15,9 +15,6 @@ import java.util.logging.Logger;
 @Service
 public class GetContacts {
 
-//    @Value("${contacts-settings}")
-//    private String fileNameLoad;
-
     @Autowired
     private Person person;
 
