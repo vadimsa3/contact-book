@@ -1,6 +1,5 @@
 package contact.book.servises;
 
-import contact.book.profiles.EnvContacts;
 import contact.book.profiles.ProfileWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,22 +13,13 @@ public class MainMenu {
     @Autowired
     private PersonService personService;
 
-//    @Autowired
-//    private InitContacts initContacts;
-
     @Autowired
     private ProfileWorker profileWorker;
-
-//    @Autowired
-//    private EnvContacts envContacts;
 
     private static final java.util.logging.Logger log = Logger.getLogger(MainMenu.class.getName());
 
     public void menu() {
-//        initContacts.readContactBookFromFile();
-//        envContacts.choiceEnv();
         profileWorker.doWork();
-
         while (true) {
             System.out.println("""
                     Перечень команд для работы с контактами:

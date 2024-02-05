@@ -3,11 +3,10 @@ package contact.book.profiles;
 import contact.book.servises.GetContacts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 public class InitEnv implements EnvContacts {
 
-    @Value("${file}")
+    @Value("${contacts-settings.file-load}")
     private String fileNameLoad;
 
     @Autowired

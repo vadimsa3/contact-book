@@ -13,6 +13,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Component
 public class ContactBook {
+
     @Autowired
     private List<Person> persons;
 }

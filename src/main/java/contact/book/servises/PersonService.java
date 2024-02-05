@@ -17,7 +17,7 @@ public class PersonService {
     @Autowired
     private ContactBook contactBook;
 
-    @Value("${file}")
+    @Value("${file-save}")
     private String fileNameSave;
 
     private static final java.util.logging.Logger log = Logger.getLogger(PersonService.class.getName());
