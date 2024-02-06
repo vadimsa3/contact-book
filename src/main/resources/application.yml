@@ -2,17 +2,25 @@ spring:
  profiles:
   active: init
 ---
+# default профиль
+contacts-settings:
+ file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\default-contacts.txt
+---
 # загрузка default контактов из сторонней базы по умолчанию
 spring:
- profiles: init
+ config:
+  activate:
+   on-profile: init
 contacts-settings:
  file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\default-contacts.txt
 ---
 # загрузка контактов из базы, сохраненной по результатам работы программы
 spring:
- profiles: read
+ config:
+  activate:
+   on-profile: read
 contacts-settings:
- file-load-read: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt
+ file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt
 ---
 # запись контактов в базу
 file-save: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt

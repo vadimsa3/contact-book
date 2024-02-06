@@ -4,9 +4,10 @@ import contact.book.profiles.EnvContacts;
 import contact.book.profiles.InitEnv;
 import org.springframework.context.annotation.*;
 
+@ComponentScan("contact.book")
+@PropertySource("classpath:application.yml")
 @Configuration
 @Profile("init")
-@PropertySource("classpath:application.yml")
 public class InitConfig {
 
     @Bean
