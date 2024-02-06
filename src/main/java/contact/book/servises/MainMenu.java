@@ -28,7 +28,7 @@ public class MainMenu {
                     2 - Добавление нового контакта в список.
                     3 - Удаление контакта по email.
                     4 - Поиск контакта по email.
-                    5 - Выход.""");
+                    5 - Выход (с сохранением изменений).""");
             System.out.println("Введите номер команды: ");
             Scanner scannerMenu = new Scanner(System.in);
             int numberMenu = scannerMenu.nextInt();
