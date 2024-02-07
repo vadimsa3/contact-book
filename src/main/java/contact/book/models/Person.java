@@ -12,8 +12,7 @@ import java.text.MessageFormat;
 @Setter
 @NoArgsConstructor
 @Component
-//@ConfigurationProperties(prefix = "persons.person")
-//@EnableConfigurationProperties
+
 public class Person {
 
 //    @Value("${app.person.fullName}")

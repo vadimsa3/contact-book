@@ -8,9 +8,10 @@ import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 
+import java.util.Objects;
+
 @ComponentScan("contact.book")
 @Configuration
-@PropertySource("classpath:application.yml")
 public class AppConfig {
 
     @Bean
@@ -18,7 +19,7 @@ public class AppConfig {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
         YamlPropertiesFactoryBean yamlPropertiesFactoryBean = new YamlPropertiesFactoryBean();
         yamlPropertiesFactoryBean.setResources(new ClassPathResource("application.yml"));
-        configurer.setProperties(yamlPropertiesFactoryBean.getObject());
+        configurer.setProperties(Objects.requireNonNull(yamlPropertiesFactoryBean.getObject()));
         return configurer;
     }
 }
