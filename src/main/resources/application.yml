@@ -1,7 +1,6 @@
 spring:
   profiles:
     active: init
-
 ---
 spring:
   config:
@@ -20,15 +19,7 @@ file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\co
 file-save: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\contacts.txt
 
 
-#spring.profiles.active: init
-#---
-## загрузка default контактов из сторонней базы по умолчанию
-#spring.activate.profile: init
+
 #file-load: C:\\IdeaProjects\\contact-book\\src\\main\\resources\\default-contacts.txt
-#---
-## загрузка контактов из базы, сохраненной по результатам работы программы
-#spring.activate.profile: read
 #file-load: C:\\IdeaProjects\\contact-book\\src\\main\\resources\\contacts.txt
-#---
-## запись контактов в базу
 #file-save: C:\\IdeaProjects\\contact-book\\src\\main\\resources\\contacts.txt

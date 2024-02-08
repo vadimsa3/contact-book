@@ -2,8 +2,6 @@ package contact.book;
 
 import contact.book.config.AppConfig;
 import contact.book.servises.MainMenu;
-import contact.book.servises.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -18,11 +16,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ApplicationContext ctx = SpringApplication.run(AppConfig.class, args);
-        Environment env = ctx.getEnvironment();
+        ApplicationContext context = SpringApplication.run(AppConfig.class, args);
+        Environment env = context.getEnvironment();
         log.info("Currently active profile(s): " + Arrays.toString(env.getActiveProfiles()));
-
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         context.getBean(MainMenu.class).menu();
     }
 }
