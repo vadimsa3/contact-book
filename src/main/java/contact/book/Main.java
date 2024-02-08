@@ -1,6 +1,7 @@
 package contact.book;
 
 import contact.book.config.AppConfig;
+import contact.book.exceptions.IllegalInputException;
 import contact.book.servises.MainMenu;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,7 +16,6 @@ public class Main {
     private static final java.util.logging.Logger log = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
-
         ApplicationContext context = SpringApplication.run(AppConfig.class, args);
         Environment env = context.getEnvironment();
         log.info("Currently active profile(s): " + Arrays.toString(env.getActiveProfiles()));

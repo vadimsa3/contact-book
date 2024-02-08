@@ -15,13 +15,8 @@ import java.text.MessageFormat;
 
 public class Person {
 
-//    @Value("${app.person.fullName}")
     private String fullName;
-
-//    @Value("${app.person.phoneNumber}")
     private String phoneNumber;
-
-//    @Value("${app.person.email}")
     private String email;
 
     public Person(String fullName, String phoneNumber, String email) {

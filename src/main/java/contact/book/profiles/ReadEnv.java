@@ -3,7 +3,6 @@ package contact.book.profiles;
 import contact.book.servises.GetContacts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Profile;
 
 public class ReadEnv implements EnvContacts {
 

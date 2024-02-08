@@ -1,5 +1,6 @@
 package contact.book.servises;
 
+import contact.book.exceptions.IllegalInputException;
 import contact.book.models.ContactBook;
 import contact.book.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class PersonService {
     @Autowired
     private ContactBook contactBook;
 
+    @Autowired
+    private CheckProcessingService checkProcessingService;
+
     @Value("${file-save}")
     private String fileNameSave;
 
@@ -25,10 +29,19 @@ public class PersonService {
     public void saveNewPersonToContactBook() {
         System.out.println("Введите данные в следующем порядке: Ф.И.О, номер телефона, адрес электронной почты");
         Scanner scannerNewPerson = new Scanner(System.in);
-        String fullName = scannerNewPerson.nextLine();
-        String phoneNumber = scannerNewPerson.nextLine();
-        String email = scannerNewPerson.nextLine();
-        contactBook.getPersons().add(new Person(fullName, phoneNumber, email));
+        try {
+            String fullName = scannerNewPerson.nextLine();
+            checkProcessingService.isFullNameInputCorrect(fullName);
+            String phoneNumber = scannerNewPerson.nextLine();
+            checkProcessingService.isPhoneNumberInputCorrect(phoneNumber);
+            String email = scannerNewPerson.nextLine();
+            checkProcessingService.isEmailInputCorrect(email);
+            Person newPerson = new Person(fullName, phoneNumber, email);
+            contactBook.getPersons().add(newPerson);
+            log.info("Новый контакт успешно сохранен.");
+        } catch (IllegalInputException exception) {
+            log.warning(exception.getMessage());
+        }
     }
 
     public void showContactBook() {
@@ -42,6 +55,7 @@ public class PersonService {
         System.out.println();
     }
 
+    // проверка на правильность адреса и наличия в базе
     public void deletePersonFromContactBook() {
         System.out.println("Введите email контакта для удаления: ");
         Scanner scannerEmail = new Scanner(System.in);
@@ -51,6 +65,7 @@ public class PersonService {
         }
     }
 
+    // ответ при + и -
     public void findPersonFromContactBook() {
         System.out.println("Введите email контакта для поиска: ");
         Scanner scannerEmail = new Scanner(System.in);
