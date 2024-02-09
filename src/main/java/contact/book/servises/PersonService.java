@@ -46,7 +46,7 @@ public class PersonService {
 
     public void showContactBook() {
         System.out.println("Список контактов:");
-        if (!contactBookIsEmpty()) {
+        if (isContactBookEmpty()) {
             contactBook.getPersons().forEach(person ->
                     System.out.println(person.getFullName() +
                             " | " + person.getPhoneNumber() +
@@ -55,32 +55,32 @@ public class PersonService {
         System.out.println();
     }
 
-    // проверка на правильность адреса и наличия в базе
-    public void deletePersonFromContactBook() {
+    // проверка на правильность адреса и наличия в базе, сюда внести
+    public void deletePersonFromContactBook() throws IllegalInputException {
         System.out.println("Введите email контакта для удаления: ");
         Scanner scannerEmail = new Scanner(System.in);
-        String emailDelete = scannerEmail.nextLine();
-        if (!contactBookIsEmpty()) {
-            contactBook.getPersons().removeIf(person -> emailDelete.equals(person.getEmail()));
+        String emailToDelete = scannerEmail.nextLine();
+        if (isContactBookEmpty()) {
+            contactBook.getPersons().removeIf(person -> emailToDelete.equals(person.getEmail()));
         }
     }
 
-    // ответ при + и -
     public void findPersonFromContactBook() {
         System.out.println("Введите email контакта для поиска: ");
         Scanner scannerEmail = new Scanner(System.in);
         String emailFind = scannerEmail.nextLine();
-        if (!contactBookIsEmpty()) {
-            contactBook.getPersons().stream().filter(person ->
-                    person.getEmail().contains(emailFind)).forEach(Person::printInfo);
+        if (isContactBookEmpty()) {
+            contactBook.getPersons().stream()
+                    .filter(person -> person.getEmail().equals(emailFind))
+                    .forEach(Person::printInfo);
         }
     }
 
-    private boolean contactBookIsEmpty() {
+    private boolean isContactBookEmpty() {
         if (contactBook.getPersons().isEmpty()) {
             log.warning("Список контактов пуст.");
         }
-        return false;
+        return true;
     }
 
     public void saveContactBookToFile() {

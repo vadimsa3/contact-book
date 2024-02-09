@@ -3,7 +3,6 @@ package contact.book.servises;
 import contact.book.exceptions.IllegalInputException;
 import contact.book.profiles.ProfileWorker;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
@@ -18,6 +17,9 @@ public class MainMenu {
     @Autowired
     private ProfileWorker profileWorker;
 
+    @Autowired
+    private CheckProcessingService checkProcessingService;
+
     private static final java.util.logging.Logger log = Logger.getLogger(MainMenu.class.getName());
 
     public void menu() {
@@ -31,22 +33,30 @@ public class MainMenu {
                     4 - Поиск контакта по email.
                     5 - Выход (с сохранением изменений).""");
             System.out.println("Введите номер команды: ");
-            Scanner scannerMenu = new Scanner(System.in);
-            int numberMenu = scannerMenu.nextInt();
-            switch (numberMenu) {
-                case 1 -> personService.showContactBook();
-                case 2 -> personService.saveNewPersonToContactBook();
-                case 3 -> personService.deletePersonFromContactBook();
-                case 4 -> personService.findPersonFromContactBook();
-                case 5 -> {
-                    System.out.println("Завершение работы.");
-                    personService.saveContactBookToFile();
-                    System.exit(0);
+            try {
+                Scanner scannerMenu = new Scanner(System.in);
+                if (scannerMenu.hasNextInt()) {
+                    int numberMenu = scannerMenu.nextInt();
+                    switch (numberMenu) {
+                        case 1 -> personService.showContactBook();
+                        case 2 -> personService.saveNewPersonToContactBook();
+                        case 3 -> personService.deletePersonFromContactBook();
+                        case 4 -> personService.findPersonFromContactBook();
+                        case 5 -> {
+                            System.out.println("Завершение работы.");
+                            personService.saveContactBookToFile();
+                            System.exit(0);
+                        }
+                        default -> {
+                            checkProcessingService.defaultCaseMainMenu(scannerMenu.nextLine());
+                            continue;
+                        }
+                    }
+                } else {
+                    log.warning("Необходимо ввести корректный цифровой номер команды.");
                 }
-                default -> {
-                    log.warning("Необходимо выбрать команду из списка.");
-                    continue;
-                }
+            } catch (IllegalInputException exception) {
+                log.warning(exception.getMessage());
             }
         }
     }

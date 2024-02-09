@@ -1,11 +1,9 @@
 package contact.book;
 
 import contact.book.config.AppConfig;
-import contact.book.exceptions.IllegalInputException;
 import contact.book.servises.MainMenu;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
 import java.util.Arrays;

@@ -2,12 +2,9 @@ package contact.book.servises;
 
 import contact.book.exceptions.IllegalInputException;
 import contact.book.models.ContactBook;
-import contact.book.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,16 +47,13 @@ public class CheckProcessingService {
             throw new IllegalInputException();
         }
     }
-}
 
-/*  TO DO
-    Введите номер команды:
-    Иванов Иван Иванович
-    Exception in thread "main" java.util.InputMismatchException
-    at java.base/java.util.Scanner.throwFor(Scanner.java:947)
-    at java.base/java.util.Scanner.next(Scanner.java:1602)
-    at java.base/java.util.Scanner.nextInt(Scanner.java:2267)
-    at java.base/java.util.Scanner.nextInt(Scanner.java:2221)
-    at contact.book.servises.MainMenu.menu(MainMenu.java:35)
-    at contact.book.Main.main(Main.java:22)
-*/
+    public void defaultCaseMainMenu(String numberInput) throws IllegalInputException {
+        String defaultPattern = "\\d+";
+        Pattern pattern = Pattern.compile(defaultPattern);
+        Matcher matcher = pattern.matcher(numberInput);
+        if (!matcher.matches()) {
+            throw new IllegalInputException();
+        }
+    }
+}
