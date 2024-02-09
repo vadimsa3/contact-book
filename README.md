@@ -20,9 +20,9 @@ git clone https://github.com/vadimsa3/contact-book/
 **3. Настройте Ваш файл конфигурации application.yaml.**  
 
 * Внесите корректировки в абсолютный путь к Вашему файлу - базе контактов (загружаемой при выборе активного профиля default-contacts.txt и contacts.txt) и базе контактов (сохраняемой при завершении работы contacts.txt):
-*   пример: file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\default-contacts.txt
+    пример: file-load: D:\\SAVCHUK\\SKILLBOX\\Spring\\contact-book\\src\\main\\resources\\default-contacts.txt
 * Выберите предпочтительный активный профиль:
-*   - init - будут загружены контакты из default-contacts.txt (список контактов по умолчанию)
+    - init - будут загружены контакты из default-contacts.txt (список контактов по умолчанию)
     - read - будут загружены контакты из contacts.txt (список контактов из contacts.txt, сохраненного в предыдущем сеансе)
     - default - профиль по умолчанию, при отсутствии явно выбранного профиля (будут загружены контакты из contacts.txt, сохраненного в предыдущем сеансе)
       
