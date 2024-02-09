@@ -32,8 +32,7 @@ git clone https://github.com/vadimsa3/contact-book/
 1. Запустите приложение:
    - посредством IntelliJ IDEA
    - запуск JAR-файла из командной строки: 
-       java -jar /home/user/jar_name.jar - для Linux
-       java -jar C:\Users\user\jar_name.jar - для Windows
+       java -jar D:\SAVCHUK\SKILLBOX\Spring\contact-book\target\contact-book-1.0-SNAPSHOT.jar - для Windows (с учетом правильного расположения файла)
      
 3. Следуйте командам главного меню.
    
