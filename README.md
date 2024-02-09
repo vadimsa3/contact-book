@@ -37,6 +37,7 @@ git clone https://github.com/vadimsa3/contact-book/
        java -jar C:\Users\user\jar_name.jar - для Windows
      
 3. Следуйте командам главного меню.
+   
    ![Изображение](https://github.com/vadimsa3/contact-book/blob/master/src/main/resources/raw/MainMenu.jpg "Главное меню")
 
    Перечень команд для работы с контактами:
