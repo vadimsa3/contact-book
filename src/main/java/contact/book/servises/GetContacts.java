@@ -16,9 +16,6 @@ import java.util.logging.Logger;
 public class GetContacts {
 
     @Autowired
-    private Person person;
-
-    @Autowired
     private ContactBook contactBook;
 
     public static List<Person> contactsList = new ArrayList<>();

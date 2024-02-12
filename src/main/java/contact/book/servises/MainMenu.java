@@ -46,6 +46,7 @@ public class MainMenu {
                             System.out.println("Завершение работы.");
                             personService.saveContactBookToFile();
                             System.exit(0);
+                            // используйте Spring ApplicationContext.close() для корректного закрытия приложения
                         }
                         default -> {
                             checkProcessingService.defaultCaseMainMenu(scannerMenu.nextLine());
